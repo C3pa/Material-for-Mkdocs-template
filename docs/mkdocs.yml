@@ -1,5 +1,7 @@
 site_name: Material for Mkdocs test setup
 
+docs_dir: source
+
 plugins:
   - awesome-pages
   - search:
