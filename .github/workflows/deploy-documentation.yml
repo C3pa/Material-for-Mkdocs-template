@@ -21,14 +21,30 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout Master
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          # Mkdocs Revision Date plugin only needs info for docs folder
+          sparse-checkout: |
+            docs
+
+      - name: Set up Python 3
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
       # - uses: actions/cache@v2
       #   with:
       #     key: ${{ github.ref }}
       #     path: .cache
-      - run: pip install mkdocs-material mkdocs-awesome-pages-plugin
-      - run: git pull
-      - run: mkdocs gh-deploy --force
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install mkdocs-material mkdocs-awesome-pages-plugin mkdocs-git-revision-date-localized-plugin
+
+      - name: Deploy
+        run: |
+          cd $GITHUB_WORKSPACE/docs
+          git pull
+          mkdocs gh-deploy
