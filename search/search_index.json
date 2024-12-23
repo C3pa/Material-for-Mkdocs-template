@@ -1,1 +1,1 @@
-{"config":{"lang":["en"],"separator":"[\\s\\-,:!=\\[\\]()\"/]+|(?!\\b)(?=[A-Z][a-z])","pipeline":["stopWordFilter"]},"docs":[{"location":"","title":"Welcome","text":"<p>This is a testing repository for setting up Material for Mkdocs and deploying using Github Pages.</p>"}]}
+{"config":{"lang":["en"],"separator":"[\\s\\-,:!=\\[\\]()\"/]+|(?!\\b)(?=[A-Z][a-z])","pipeline":["stopWordFilter"]},"docs":[{"location":"","title":"Welcome","text":"<p>This is a testing repository for setting up Material for Mkdocs and deploying using Github Pages.</p> <p>More to come...</p>"}]}
